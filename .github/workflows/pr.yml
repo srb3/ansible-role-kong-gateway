@@ -19,8 +19,4 @@ jobs:
           python3 -m pip install --user "molecule[ansible,lint,podman]"
       - name: run molecule
         run: |
-          pwd
-          ls
-          tree
-          find . -name "*molecule.yml"
           molecule test
