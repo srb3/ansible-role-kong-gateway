@@ -1,6 +1,5 @@
 ---
-
-- name: install Kong dependencise 
+- name: install Kong dependencise
   dnf:
     name: sudo
 
@@ -21,4 +20,3 @@
     disable_gpg_check: true
   when: role != "data_plane"
   become: yes
-

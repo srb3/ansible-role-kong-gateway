@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: kong-gateway
+  role_name: kong_gateway
   author: Steve Brown
   description: Deploys Kong gateway
   company: Opensource
@@ -9,7 +9,7 @@ galaxy_info:
   - name: rhel
     versions:
     - 8
-  - name: ubuntu 
+  - name: ubuntu
     versions:
     - 20.04
   galaxy_tags: []

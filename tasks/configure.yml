@@ -1,3 +1,4 @@
+---
 - name: Write Kong license
   template:
     src: license.json.j2

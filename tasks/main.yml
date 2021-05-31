@@ -1,5 +1,4 @@
 ---
-
 - name: set distro-specific variables
   include_vars: '{{ item }}'
   with_first_found:

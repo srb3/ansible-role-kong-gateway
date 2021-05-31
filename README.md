@@ -27,7 +27,7 @@ Example Playbook
 ```yaml
     - hosts: data_planes 
       roles:
-         - { role: srb3.kong-gateway, role: "data_plane" }
+         - { role: srb3.kong_gateway, role: "data_plane" }
 ```
 
 License
