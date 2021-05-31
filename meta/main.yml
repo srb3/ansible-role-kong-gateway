@@ -9,8 +9,8 @@ galaxy_info:
   - name: rhel
     versions:
     - 8
-  - name: ubuntu
+  - name: debian
     versions:
-    - 20.04
+    - 10
   galaxy_tags: []
 dependencies: []
