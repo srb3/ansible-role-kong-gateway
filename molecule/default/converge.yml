@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: "Include ansible-role-kong_enterprise"
+    - name: "kong_gateway"
       include_role:
-        name: "ansible-role-kong_enterprise"
+        name: "kong_gateway"

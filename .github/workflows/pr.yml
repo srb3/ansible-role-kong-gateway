@@ -16,9 +16,7 @@ jobs:
           set -x
           sudo apt-get update
           sudo apt install -y python3-pip libssl-dev tree
-          python3 -m pip install --user "molecule[ansible]"
-          python3 -m pip install --user "molecule[lint]"
-          python3 -m pip install --user "molecule[podman]"
+          python3 -m pip install --user "molecule[ansible,lint,podman]"
       - name: run molecule
         run: |
           pwd
