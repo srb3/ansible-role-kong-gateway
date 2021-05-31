@@ -23,10 +23,9 @@ jobs:
           sudo apt autoremove -y
           sudo systemctl start podman
           sudo apt install -y python3-pip libssl-dev
-          python3 -m pip install "molecule[ansible]"
-          python3 -m pip install "molecule[lint]"
-          python3 -m pip install "molecule[docker]"
-          python3 -m pip install "molecule[podman]"
+          python3 -m pip install --user "molecule[ansible]"
+          python3 -m pip install --user "molecule[lint]"
+          python3 -m pip install --user "molecule[podman]"
       - name: run molecule
         run: |
           molecule test
