@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include ansible-role-kong_enterprise"
+      include_role:
+        name: "ansible-role-kong_enterprise"

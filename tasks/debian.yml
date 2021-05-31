@@ -1,0 +1,21 @@
+- name: Install Kong Dependencies 
+  apt:
+    pkg:
+      - perl
+      - zlib1g-dev
+      - xz-utils
+    update_cache: yes
+  become: yes
+
+- name: Install Kong enterprise package
+  apt:
+    deb: "{{ kong_package_url }}"
+    update_cache: yes
+  become: yes
+
+- name: Install Kong DecK
+  apt:
+    deb: "{{ deck_package_url }}"
+    update_cache: yes
+  when: role != "data_plane"
+  become: yes

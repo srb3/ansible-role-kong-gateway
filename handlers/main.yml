@@ -1,0 +1,12 @@
+---
+- name: Restart Kong
+  ansible.builtin.service:
+    name: kong-enterprise-edition
+    state: restarted
+  become: yes
+
+- name: Reload Kong
+  ansible.builtin.service:
+    name: kong-enterprise-edition
+    state: reloaded
+  become: yes

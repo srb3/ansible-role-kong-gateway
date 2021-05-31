@@ -1,0 +1,103 @@
+---
+kong_package_url: https://download.konghq.com/gateway-2.x-centos-8/Packages/k/kong-enterprise-edition-2.4.1.0.el8.noarch.rpm
+kong_table_count: none
+deck_package_url: https://github.com/Kong/deck/releases/download/v1.6.0/deck_v1.6.0_amd64.rpm
+role: traditional
+
+# Callback urls
+#admin_gui_url:
+#admin_api_uri:
+#portal_api_url:
+#portal_gui_host:
+#portal_gui_url:
+#portal_gui_protocol:
+#proxy_url:
+
+# TLS values
+admin_ssl_cert_key_path: /etc/secrets/kong-admin-api/tls.key
+admin_ssl_cert_path: /etc/secrets/kong-admin-api/tls.crt
+admin_gui_ssl_cert_key_path: /etc/secrets/kong-admin-gui/tls.key
+admin_gui_ssl_cert_path: /etc/secrets/kong-admin-gui/tls.crt
+portal_gui_ssl_cert_key_path: /etc/secrets/kong-portal-gui/tls.key
+portal_gui_ssl_cert_path: /etc/secrets/kong-portal-gui/tls.crt
+portal_api_ssl_cert_key_path: /etc/secrets/kong-portal-api/tls.key
+portal_api_ssl_cert_path: /etc/secrets/kong-portal-api/tls.crt
+ssl_key_path: /etc/secrets/kong-proxy/tls.key
+ssl_cert_path: /etc/secrets/kong-proxy/tls.crt
+cluster_cert_key_path: /etc/secrets/kong-cluster/tls.key
+cluster_cert_path: /etc/secrets/kong-cluster/tls.crt
+cluster_mtls: shared
+
+#admin_ssl_cert_key:
+#admin_ssl_cert:
+#admin_gui_ssl_cert_key:
+#admin_gui_ssl_cert:
+#portal_gui_ssl_cert_key:
+#portal_gui_ssl_cert:
+#portal_api_ssl_cert_key:
+#portal_api_ssl_cert:
+#ssl_cert:
+#ssl_key:
+#cluster_cert:
+#cluster_cert_key:
+#lua_ssl_trusted_certificate: /etc/secrets/kong-cluster/tls.crt
+
+# Logging values
+log_level: notice
+admin_access_log: logs/admin_access.log
+admin_error_log: logs/error.log
+portal_gui_access_log: logs/portal_gui_access.log
+portal_gui_error_log: logs/portal_gui_error.log
+portal_api_access_log: logs/portal_api_access.log
+portal_api_error_log: logs/portal_api_error.log
+proxy_access_log: logs/access.log
+proxy_error_log: logs/error.log
+
+# RBAC values
+#admin_gui_auth:
+#enforce_rbac:
+#portal_auth:
+#admin_gui_auth_conf:
+#admin_gui_session_conf:
+#portal_session_conf:
+#portal_auth_conf:
+#
+# Listen values
+admin_listen: 0.0.0.0:8001, 0.0.0.0:8444 ssl
+admin_gui_listen: 0.0.0.0:8002, 0.0.0.0:8445 ssl
+portal_gui_listen: 0.0.0.0:8003, 0.0.0.0:8446 ssl
+portal_api_listen: 0.0.0.0:8004, 0.0.0.0:8447 ssl
+cluster_listen: 0.0.0.0:8005 ssl
+cluster_telemetry_listen: 0.0.0.0:8006 ssl
+status_listen: 0.0.0.0:8100
+porxy_listen: 0.0.0.0:8000, 0.0.0.0:8443 ssl
+
+# Portal values
+portal: "off"
+portal_gui_protocol: https
+
+# Stream values
+stream_listen: "off"
+
+# Misc values
+anonymous_reports: "off"
+
+# Database
+database: "off"
+#pg_password:
+#pg_host:
+#pg_port:
+#pg_user:
+
+# Hybrid mode values
+#cluster_control_plane:
+#cluster_telemetry_endpoint:
+
+# License value
+license_data: ""
+
+vitals_strategy: database
+#vitals_tsdb_address:
+#vitals_statsd_address:
+#vitals_statsd_prefix:
+#vitals_prometheus_scrape_interval:

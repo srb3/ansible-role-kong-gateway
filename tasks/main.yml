@@ -1,0 +1,17 @@
+---
+
+- name: set distro-specific variables
+  include_vars: '{{ item }}'
+  with_first_found:
+    - '{{ ansible_os_family }}.yml'
+    - default.yml
+
+- include: debian.yml
+  when: ansible_os_family == 'Debian'
+  tags: package
+
+- include: redhat.yml
+  when: ansible_os_family == 'RedHat'
+  tags: package
+
+- include: configure.yml

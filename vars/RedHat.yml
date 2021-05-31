@@ -1,0 +1,2 @@
+kong_package_url: https://download.konghq.com/gateway-2.x-centos-8/Packages/k/kong-enterprise-edition-2.4.1.0.el8.noarch.rpm
+deck_package_url: https://github.com/Kong/deck/releases/download/v1.7.0/deck_v1.7.0_amd64.rpm

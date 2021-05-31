@@ -1,0 +1,200 @@
+# Kong role
+role                        = {{ role }}
+
+# Callback urls
+{% if role == 'traditional' or role == 'control_plane' %}
+{% if admin_gui_url is defined %}
+admin_gui_url               = {{ admin_gui_url }}
+{% endif %}
+{% if admin_api_uri is defined %}
+admin_api_uri               = {{ admin_api_uri }}
+{% endif %}
+{% if portal_api_url is defined %}
+portal_api_url              = {{ portal_api_url }} 
+{% endif %}
+{% if portal_gui_host is defined %}
+portal_gui_host             = {{ portal_gui_host }}
+{% endif %}
+{% if portal_gui_url is defined %}
+portal_gui_url              = {{ portal_gui_url }}
+{% endif %}
+{% if portal_gui_protocol is defined %}
+portal_gui_protocol         = {{ portal_gui_protocol }}
+{% endif %}
+{% endif %}
+{% if role == 'traditional' or role == 'data_plane' %}
+{% if proxy_url is defined %}
+proxy_url                   = {{ proxy_url }}
+{% endif %}
+{% endif %}
+
+# TLS values
+{% if role == 'traditional' or role == 'control_plane' %}
+{% if lua_ssl_trusted_certificate is defined %}
+lua_ssl_trusted_certificate = {{ lua_ssl_trusted_certificate }}
+{% endif %}
+{% if admin_ssl_cert_key is defined %}
+admin_ssl_cert_key          = {{ admin_ssl_cert_key_path }}
+{% endif %}
+{% if admin_ssl_cert is defined %}
+admin_ssl_cert              = {{ admin_ssl_cert_path }}
+{% endif %}
+{% if admin_gui_ssl_cert_key is defined %}
+admin_gui_ssl_cert_key      = {{ admin_gui_ssl_cert_key_path }}
+{% endif %}
+{% if admin_gui_ssl_cert is defined %}
+admin_gui_ssl_cert          = {{ admin_gui_ssl_cert_path }}
+{% endif %}
+{% if portal_gui_ssl_cert_key is defined %}
+portal_gui_ssl_cert_key     = {{ portal_gui_ssl_cert_key_path }}
+{% endif %}
+{% if portal_gui_ssl_cert is defined %}
+portal_gui_ssl_cert         = {{ portal_gui_ssl_cert_path }}
+{% endif %}
+{% if portal_api_ssl_cert_key is defined %}
+portal_api_ssl_cert_key     = {{ portal_api_ssl_cert_key_path }}
+{% endif %}
+{% if portal_api_ssl_cert is defined %}
+portal_api_ssl_cert         = {{ portal_api_ssl_cert_path }}
+{% endif %}
+{% endif %}
+
+{% if role == 'control_plane' %}
+cluster_mtls                = {{ cluster_mtls }}
+{% if cluster_cert is defined %}
+cluster_cert                = {{ cluster_cert_path }}
+{% endif %}
+{% if cluster_cert_key is defined %}
+cluster_cert_key            = {{ cluster_cert_key_path }}
+{% endif %}
+
+{% endif %}
+
+{% if role == 'traditional' or role == 'data_plane' %}
+{% if ssl_cert is defined %}
+ssl_cert                    = {{ ssl_cert }}
+{% endif %}
+{% if ssl_key is defined %}
+ssl_key                     = {{ ssl_key }}
+{% endif %}
+{% endif %}
+
+{% if role == 'data_plane' %}
+cluster_mtls                = {{ cluster_mtls }}
+{% if cluster_cert is defined %}
+cluster_cert                = {{ cluster_cert_path }}
+{% endif %}
+{% if cluster_cert_key is defined %}
+cluster_cert_key            = {{ cluster_cert_key_path }}
+{% endif %}
+{% if cluster_mtls == 'shared' %}
+lua_ssl_trusted_certificate = {{ cluster_cert_path }}
+{% elif lua_ssl_trusted_certificate is defined %}
+lua_ssl_trusted_certificate = {{ lua_ssl_trusted_certificate_path }}
+{% endif %}
+{% endif %}
+
+# Logging values
+log_level                = {{ log_level }}
+{% if role == 'traditional' or role == 'control_plane' %}
+admin_access_log         = {{ admin_access_log }}
+admin_error_log          = {{ admin_error_log }}
+portal_gui_access_log    = {{ portal_gui_access_log }}
+portal_gui_error_log     = {{ portal_gui_error_log }}
+portal_api_access_log    = {{ portal_api_access_log }}
+portal_api_error_log     = {{ portal_api_error_log }}
+{% endif %}
+
+{% if role == 'traditional' or role == 'data_plane' %}
+proxy_access_log         = {{ proxy_access_log }}
+proxy_error_log          = {{ proxy_error_log }}
+{% endif %}
+
+{% if role == 'traditional' or role == 'control_plane' %}
+{% if admin_gui_auth_conf is defined %}
+admin_gui_auth_conf      = {{ admin_gui_auth_conf }}
+{% endif %}
+{% if admin_gui_auth is defined %}
+admin_gui_auth           = {{ admin_gui_auth }}
+{% endif %}
+{% if enforce_rbac is defined %}
+enforce_rbac             = {{ enforce_rbac }}
+{% endif %}
+{% if portal_auth is defined %}
+portal_auth              = {{ portal_auth }}
+{% endif %}
+{% if admin_gui_session_conf is defined %}
+admin_gui_session_conf   = {{ admin_gui_session_conf }}
+{% endif %}
+{% if portal_session_conf is defined %}
+portal_session_conf      = {{ portal_session_conf }}
+{% endif %}
+{% if portal_auth_conf is defined %}
+portal_auth_conf         = {{ portal_auth_conf }}
+{% endif %}
+{% endif %}
+
+# Listen values
+{% if role == 'traditional' or role == 'control_plane' %}
+admin_listen             = {{ admin_listen }}
+admin_gui_listen         = {{ admin_gui_listen }}
+portal_gui_listen        = {{ portal_gui_listen }}
+portal_api_listen        = {{ portal_api_listen }}
+cluster_listen           = {{ cluster_listen }}
+cluster_telemetry_listen = {{ cluster_telemetry_listen }}
+{% endif %}
+status_listen            = {{ status_listen }}
+
+{% if role == 'traditional' or role == 'data_plane' %}
+proxy_listen             = {{ porxy_listen }}
+{% endif %}
+
+{% if role == 'data_plane' %}
+# Hybrid mode values
+{% if cluster_control_plane is defined %}
+cluster_control_plane      = {{ cluster_control_plane }}
+{% endif %}
+{% if cluster_telemetry_endpoint is defined %}
+cluster_telemetry_endpoint = {{ cluster_telemetry_endpoint }}
+{% endif %}
+{% endif %}
+
+{% if role == 'traditional' or role == 'control_plane' %}
+# Portal values
+portal                   = {{ portal }}
+{% endif %}
+
+# Stream values
+stream_listen            = {{ stream_listen }}
+
+# Misc values
+anonymous_reports        = {{ anonymous_reports }}
+
+# Database values
+database                 = {{ database }}
+{% if pg_password is defined %}
+pg_password              = {{ pg_password }}
+{% endif %}
+{% if pg_user is defined %}
+pg_user                  = {{ pg_user}}
+{% endif %}
+{% if pg_host is defined %}
+pg_host                  = {{ pg_host }}
+{% endif %}
+{% if pg_port is defined %}
+pg_port                  = {{ pg_port }}
+{% endif %}
+
+vitals_strategy          = {{ vitals_strategy }}
+{% if vitals_tsdb_address is defined %}
+vitals_tsdb_address      = {{ vitals_tsdb_address }}
+{% endif %}
+{% if vitals_statsd_address is defined %}
+vitals_statsd_address    = {{ vitals_statsd_address }}
+{% endif %}
+{% if vitals_statsd_prefix is defined %}
+vitals_statsd_prefix = {{ vitals_statsd_prefix }}
+{% endif %}
+{% if vitals_prometheus_scrape_interval is defined %}
+vitals_prometheus_scrape_interval = {{ vitals_prometheus_scrape_interval }}
+{% endif %}

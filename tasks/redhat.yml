@@ -1,0 +1,24 @@
+---
+
+- name: install Kong dependencise 
+  dnf:
+    name: sudo
+
+- name: enable module for perl # https://bugzilla.redhat.com/show_bug.cgi?id=1963049
+  ansible.builtin.shell: |
+    dnf module enable perl:5.30 -y
+  become: yes
+
+- name: Install Kong enterprise package
+  dnf:
+    name: "{{ kong_package_url }}"
+    disable_gpg_check: yes
+  become: yes
+
+- name: Install Kong DecK
+  dnf:
+    name: "{{ deck_package_url }}"
+    disable_gpg_check: true
+  when: role != "data_plane"
+  become: yes
+
