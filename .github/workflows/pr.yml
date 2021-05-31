@@ -26,4 +26,4 @@ jobs:
         uses: gofrolist/molecule-action@v2
         with:
           molecule_command: test
-          molecule_args: --driver-name podman --destroy=always
+          molecule_args: --driver-name docker --destroy=always
