@@ -28,4 +28,6 @@ jobs:
           python3 -m pip install --user "molecule[podman]"
       - name: run molecule
         run: |
+          pwd
+          ls
           molecule test
