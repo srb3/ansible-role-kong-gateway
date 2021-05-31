@@ -9,14 +9,11 @@ jobs:
   molecule:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-        with:
-          path: "${{ github.repository }}"
-      - name: install podman
+      - name: Checkout
+        uses: actions/checkout@v2 
+      - name: install molecule
         run: |
           set -x
-          podman --version
-          podman ps
           sudo apt-get update
           sudo apt install -y python3-pip libssl-dev tree
           python3 -m pip install --user "molecule[ansible]"
