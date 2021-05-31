@@ -18,7 +18,7 @@ jobs:
           podman --version
           podman ps
           sudo apt-get update
-          sudo apt install -y python3-pip libssl-dev
+          sudo apt install -y python3-pip libssl-dev tree
           python3 -m pip install --user "molecule[ansible]"
           python3 -m pip install --user "molecule[lint]"
           python3 -m pip install --user "molecule[podman]"
@@ -26,4 +26,6 @@ jobs:
         run: |
           pwd
           ls
+          tree
+          find . -name "*molecule.yml"
           molecule test
