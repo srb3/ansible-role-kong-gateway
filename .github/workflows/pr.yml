@@ -25,10 +25,8 @@ jobs:
           sudo apt install -y python3-pip libssl-dev
           python3 -m pip install "molecule[ansible]"
           python3 -m pip install "molecule[lint]"
-          python3 -m pip install  "molecule[docker]"
-          python3 -m pip install  "molecule[podman]"
-      - name: Molecule
-        uses: gofrolist/molecule-action@v2
-        with:
-          molecule_command: test
-          molecule_args: --driver-name docker --destroy=always
+          python3 -m pip install "molecule[docker]"
+          python3 -m pip install "molecule[podman]"
+      - name: run molecule
+        run: |
+          molecule test
