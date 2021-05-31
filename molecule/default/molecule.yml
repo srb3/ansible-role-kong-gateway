@@ -15,21 +15,12 @@ platforms:
       - SYS_ADMIN
     command: "/usr/sbin/init"
     pre_build_image: true
-  - name: ubuntu
-    image: geerlingguy/docker-ubuntu2004-ansible
-    tmpfs:
-      - /run
-      - /tmp
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
-    capabilities:
-      - SYS_ADMIN
-    command: "/lib/systemd/systemd"
-    pre_build_image: true
 provisioner:
   name: ansible
-  playbooks:
-    prepare: prepare.yml
+  config_options:
+    defaults:
+      local_tmp: /tmp/.ansible-$USER/tmp
+      remote_tmp: /tmp/.ansible-$USER/tmp
 verifier:
   name: ansible
 lint: |

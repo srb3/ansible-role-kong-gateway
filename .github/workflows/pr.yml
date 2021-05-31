@@ -1,0 +1,22 @@
+name: PR Open
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**/*.md'
+
+jobs:
+  molecule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2 
+      - name: install molecule
+        run: |
+          set -x
+          sudo apt-get update
+          sudo apt install -y python3-pip libssl-dev tree
+          python3 -m pip install --user "molecule[ansible,lint,podman]"
+      - name: run molecule
+        run: |
+          molecule test

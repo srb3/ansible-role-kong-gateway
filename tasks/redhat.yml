@@ -4,9 +4,12 @@
     name: sudo
 
 - name: enable module for perl # https://bugzilla.redhat.com/show_bug.cgi?id=1963049
-  ansible.builtin.shell: |
+  ansible.builtin.command: |
     dnf module enable perl:5.30 -y
   become: yes
+  register: result
+  changed_when:
+    - '"Enabling module streams" in result.stdout'
 
 - name: Install Kong enterprise package
   dnf:
