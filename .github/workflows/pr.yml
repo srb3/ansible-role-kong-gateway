@@ -7,11 +7,21 @@ on:
 
 jobs:
   molecule:
-    runs-on: centos-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           path: "${{ github.repository }}"
+      - name: install podman
+        run: |
+          set -x
+          sudo apt-get remove -y podman docker-ce docker docker-engine docker.io containerd runc ||:
+          curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_$( lsb_release -rs )/Release.key | sudo apt-key add -
+          echo  "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_$( lsb_release -rs )/ /" | sudo tee /etc/apt/sources.list.d/podman.list /dev/null
+          sudo apt-get update
+          sudo apt-get install -y podman
+          sudo apt autoremove -y
+          sudo systemctl start podman
       - name: Molecule
         uses: gofrolist/molecule-action@v2
         with:
