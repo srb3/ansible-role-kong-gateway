@@ -84,6 +84,7 @@ anonymous_reports: "off"
 
 # Database
 database: "off"
+#pg_database:
 #pg_password:
 #pg_host:
 #pg_port:
@@ -97,6 +98,7 @@ database: "off"
 license_data: ""
 
 vitals_strategy: database
+#vitals:
 #vitals_tsdb_address:
 #vitals_statsd_address:
 #vitals_statsd_prefix:
