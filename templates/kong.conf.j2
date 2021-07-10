@@ -172,6 +172,10 @@ anonymous_reports        = {{ anonymous_reports }}
 
 # Database values
 database                 = {{ database }}
+
+{% if pg_database is defined %}
+pg_database = {{ pg_database }}
+{% endif %}
 {% if pg_password is defined %}
 pg_password              = {{ pg_password }}
 {% endif %}
@@ -185,7 +189,12 @@ pg_host                  = {{ pg_host }}
 pg_port                  = {{ pg_port }}
 {% endif %}
 
+{% if vitals is defined %}
+vitals = {{ vitals }}
+{{% endif %}}
+
 vitals_strategy          = {{ vitals_strategy }}
+
 {% if vitals_tsdb_address is defined %}
 vitals_tsdb_address      = {{ vitals_tsdb_address }}
 {% endif %}
