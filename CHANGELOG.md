@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.5
+
+🆕 New features:
+- add a skip option to the redhat perl module enable
+
+  ([PR #4](https://github.com/srb3/ansible-role-kong-gateway/pull/4))
+
 ## 0.0.4
 
 🔧 Fixes:
