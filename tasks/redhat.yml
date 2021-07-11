@@ -8,6 +8,7 @@
   ansible.builtin.command: |
     dnf module enable perl:5.30 -y
   become: yes
+  when: dnf_perl_module_enable
   register: result
   changed_when:
     - '"Enabling module streams" in result.stdout'
