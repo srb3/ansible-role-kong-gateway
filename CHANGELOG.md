@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.0.6
+
+🔧 Fixes:
+
+- Changed the logic on the migrations bootstrap task
+
+- Namespace added to meta.yml
+
+- Prepare step added to install sudo for molecule tests
+
+  ([PR #5](https://github.com/srb3/ansible-role-kong-gateway/pull/5))
+
+
 ## 0.0.5
 
 🆕 New features:

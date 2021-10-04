@@ -70,7 +70,7 @@
   command: /usr/local/bin/kong migrations bootstrap -c /etc/kong/kong.conf
   environment:
     KONG_PASSWORD: "{{ kong_super_admin_password }}"
-  when: kong_table_count == "0" and role != "data_plane"
+  when: not dbless_mode and role != "data_plane"
   become: yes
 
 - name: Start Kong service, if not started
