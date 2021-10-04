@@ -1,5 +1,6 @@
 galaxy_info:
   role_name: kong_gateway
+  namespace: srb3
   author: Steve Brown
   description: Deploys Kong gateway
   company: Opensource

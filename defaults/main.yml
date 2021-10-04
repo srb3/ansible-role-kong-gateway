@@ -3,6 +3,7 @@ kong_package_url: https://download.konghq.com/gateway-2.x-centos-8/Packages/k/ko
 deck_package_url: https://github.com/Kong/deck/releases/download/v1.6.0/deck_v1.6.0_amd64.rpm
 role: traditional
 dnf_perl_module_enable: true
+dbless_mode: False
 # Callback urls
 #admin_gui_url:
 #admin_api_uri:
