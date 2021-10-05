@@ -75,7 +75,7 @@
 
 - name: Start Kong service, if not started
   ansible.builtin.service:
-    name: kong-enterprise-edition
+    name: "{{ kong_service_name }}" # kong-enterprise-edition
     enabled: yes
     state: started
   become: yes
